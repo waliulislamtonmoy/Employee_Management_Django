@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %} Sign Up {% endblock title %}
+
+<div>{% load tailwind_filters %} {% load crispy_forms_tags %}</div>
+
+{% block content %}
+
+<div class="p-5">
+  <form method="POST">
+    {% csrf_token %} {{form | crispy}}
+    <button class="px-2 py-2 bg-green-400 w-full block rounded" type="submit">
+      Create
+    </button>
+    <div class="mt-5">
+        <p>Alrady Have An Account <a class='font-bold' href="{% url "signin" %}">please Login</a></p>
+    </div>
+  </form>
+</div>
+
+{% endblock content %}
